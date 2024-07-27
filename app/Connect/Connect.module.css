@@ -1,0 +1,133 @@
+/* Connect.module.css */
+.contact {
+  background: linear-gradient(90.21deg, #300934 -5.91%, #1c1c44 111.58%);
+  padding: 60px 0 200px 0;
+}
+
+.imageCol {
+  display: flex;
+  justify-content: flex-start; /* Align image to the left */
+  align-items: center;
+}
+
+.formCol {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contactImage {
+  width: 100%;
+  height: auto;
+}
+
+.contactTitle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.contactInput {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  color: #fff;
+  margin: 0 0 8px 0;
+  padding: 18px 26px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease-in-out;
+}
+
+.contactInput:focus {
+  background: rgba(255, 255, 255, 1);
+  color: #121212;
+}
+
+.contactInput::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.contactInput:focus::placeholder {
+  color: #121212;
+  opacity: 0.8;
+}
+
+.contactButton {
+  font-weight: 700;
+  color: #000;
+  background-color: #fff;
+  padding: 14px 48px;
+  font-size: 18px;
+  margin-top: 25px;
+  border-radius: 0;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+.contactButton span {
+  z-index: 1;
+  position: relative;
+}
+
+.contactButton:hover {
+  color: #fff;
+}
+
+.contactButton::before {
+  content: "";
+  background: #121212;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.contactButton:hover::before {
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contact {
+    padding: 60px 0 100px 0;
+  }
+
+  .contactTitle {
+    font-size: 1.5rem;
+  }
+
+  .contactInput {
+    font-size: 16px;
+  }
+
+  .contactButton {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact {
+    padding: 60px 0 60px 0;
+  }
+
+  .contactTitle {
+    font-size: 1.25rem;
+  }
+
+  .contactInput {
+    font-size: 14px;
+  }
+
+  .contactButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
