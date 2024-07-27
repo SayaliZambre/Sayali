@@ -90,7 +90,7 @@ export default function Navbar(): JSX.Element {
                             ))}
 
                         </ul>
-                        <a className='px-6 py-2 text-white gradient-btn rounded-xl' href="/" download="Deri Kurniawan Resume">Resume</a>
+                        <a className='px-6 py-2 text-white gradient-btn rounded-xl' href="/" download="Sayali Zambre Resume">Resume</a>
                     </div>
                     {/* mobile hamburger menu */}
                     <div className="z-50 md:hidden">
@@ -131,7 +131,7 @@ export default function Navbar(): JSX.Element {
                             <a
                                 href="/"
                                 className="flex-1 py-4 safe-x-padding"
-                                download="Deri Kurniawan Resume"
+                                download="Sayali Zambre"
                             >
                                 <div className="flex items-center justify-between">
                                     <span className='text-2xl font-semibold'>Resume</span>

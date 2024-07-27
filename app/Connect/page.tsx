@@ -18,14 +18,14 @@ const Connect = () => {
   const [status, setStatus] = useState({ message: '', success: false });
   const [buttonText, setButtonText] = useState('Send');
 
-  const onFormUpdate = (category: string, value: string) => {
+  const onFormUpdate = (category, value) => {
     setFormDetails({
       ...formDetails,
       [category]: value
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
   };
@@ -38,15 +38,15 @@ const Connect = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-               <Image
-  className={styles.contactImage}
-  src="/public/contactImg.png" 
-  alt="Contact Us"
-  layout="responsive"
-  width={500} 
-  height={500} 
-/>
-              </div>
+                  <Image
+                    className={styles.contactImage}
+                    src="/contactImg.png"
+                    alt="Contact Us"
+                    width={500}
+                    height={500}
+                    layout="intrinsic" // Use "intrinsic" for Next.js 12 or "fill" for Next.js 13 and later
+                  />
+                </div>
               }
             </TrackVisibility>
           </Col>
@@ -110,7 +110,8 @@ const Connect = () => {
                       )}
                     </Row>
                   </form>
-                </div>}
+                </div>
+              }
             </TrackVisibility>
           </Col>
         </Row>
