@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import TrackVisibility from 'react-on-screen';
-import Image from 'next/image'; // Import the Image component
+import Image from 'next/image';
 import styles from './Connect.module.css';
 
 const Connect = () => {
@@ -18,14 +18,14 @@ const Connect = () => {
   const [status, setStatus] = useState({ message: '', success: false });
   const [buttonText, setButtonText] = useState('Send');
 
-  const onFormUpdate = (category, value) => {
+  const onFormUpdate = (category: string, value: any) => {
     setFormDetails({
       ...formDetails,
-      [category]: value
+      [category]: value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
   };
@@ -44,7 +44,7 @@ const Connect = () => {
                     alt="Contact Us"
                     width={500}
                     height={500}
-                    layout="intrinsic" // Use "intrinsic" for Next.js 12 or "fill" for Next.js 13 and later
+                    layout="intrinsic"
                   />
                 </div>
               }
@@ -95,7 +95,7 @@ const Connect = () => {
                       </Col>
                       <Col xs={12} className="px-1">
                         <textarea
-                          rows="6"
+                          rows={6}
                           value={formDetails.message}
                           placeholder="Message"
                           onChange={(e) => onFormUpdate('message', e.target.value)}

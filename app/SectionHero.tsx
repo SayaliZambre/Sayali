@@ -29,33 +29,33 @@ export default function SectionHero(): JSX.Element {
   const [delta, setDelta] = useState(300 - Math.random() * 100);
 
   useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
+    const tick = () => {
+      let i = loopNum % toRotate.length;
+      let fullText = toRotate[i];
+      let updatedText = isDeleting 
+        ? fullText.substring(0, text.length - 1) 
+        : fullText.substring(0, text.length + 1);
 
-    return () => { clearInterval(ticker); };
-  }, [text]);
+      setText(updatedText);
 
-  const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+      if (isDeleting) {
+        setDelta(prevDelta => prevDelta / 2);
+      }
 
-    setText(updatedText);
+      if (!isDeleting && updatedText === fullText) {
+        setIsDeleting(true);
+        setDelta(period);
+      } else if (isDeleting && updatedText === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setDelta(200);
+      }
+    };
 
-    if (isDeleting) {
-      setDelta(prevDelta => prevDelta / 2);
-    }
+    const ticker = setInterval(tick, delta);
 
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(period);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setDelta(200);
-    }
-  };
+    return () => clearInterval(ticker);
+  }, [text, delta, isDeleting, loopNum]);
 
   const { ref, inView } = useInView({
     threshold: 0.1,
@@ -138,42 +138,42 @@ export default function SectionHero(): JSX.Element {
               <motion.div
                 className='relative w-[280px] h-[280px] md:w-[330px] md:h-[330px] lg:w-[480px] lg:h-[480px] bg-black rounded-3xl overflow-clip'
               >
-             <TrackVisibility once>
-  {({ isVisible }) =>
-    <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-      <AnimatedImage
-        className='w-[280px] h-[280px] md:w-[330px] md:h-[330px] lg:w-[480px] lg:h-[480px] absolute top-0 bottom-0 left-0 right-0'
-        src={assets.home.hero.avatarSmile}
-        width={480}
-        height={480}
-        alt=''
-        priority
-        initial={{ opacity: 0.5, y: 500 }}
-        animate={isVisible ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.2, duration: 1 }}
-        aria-label="Avatar"
-      />
-    </div>
-  }
-</TrackVisibility>
-              </motion.div>
-              {animatedImages.map(({ className, src, width, height, alt, initial, animate, transition }, index) => (
-                <TrackVisibility key={index} once>
-                  {({ isVisible }) =>
+                <TrackVisibility once>
+                  {({ isVisible }) => (
                     <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
                       <AnimatedImage
-                        className={className}
-                        src={src}
-                        width={width}
-                        height={height}
-                        alt={alt}
-                        initial={initial}
-                        animate={animate}
-                        transition={transition}
+                        className='w-[280px] h-[280px] md:w-[330px] md:h-[330px] lg:w-[480px] lg:h-[480px] absolute top-0 bottom-0 left-0 right-0'
+                        src={assets.home.hero.avatarSmile}
+                        width={480}
+                        height={480}
+                        alt=''
+                        priority
+                        initial={{ opacity: 0.5, y: 500 }}
+                        animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                        transition={{ delay: 0.2, duration: 1 }}
+                        aria-label="Avatar"
+                      />
+                    </div>
+                  )}
+                </TrackVisibility>
+              </motion.div>
+              {animatedImages.map((imageProps, index) => (
+                <TrackVisibility key={index} once>
+                  {({ isVisible }) => (
+                    <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
+                      <AnimatedImage
+                        className={imageProps.className}
+                        src={imageProps.src}
+                        width={imageProps.width}
+                        height={imageProps.height}
+                        alt={imageProps.alt}
+                        initial={imageProps.initial}
+                        animate={imageProps.animate}
+                        transition={imageProps.transition}
                         aria-hidden={!inView}
                       />
                     </div>
-                  }
+                  )}
                 </TrackVisibility>
               ))}
             </div>
