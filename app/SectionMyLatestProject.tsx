@@ -12,7 +12,25 @@ import { IoMdOpen } from 'react-icons/io';
 import { FiFigma } from 'react-icons/fi';
 import styles from "./home.module.css";
 
+interface ProjectItemWithRepo {
+    slug: string;
+    title: string;
+    image: any;
+    repositoryUrl: string;
+    demoUrl: string;
+}
 
+interface ProjectItemWithoutRepo {
+    slug: string;
+    title: string;
+    image: any;
+    demoUrl: string;
+}
+
+type ProjectItem = ProjectItemWithRepo | ProjectItemWithoutRepo;
+function isProjectItemWithRepo(item: ProjectItem): item is ProjectItemWithRepo {
+    return (item as ProjectItemWithRepo).repositoryUrl !== undefined;
+}
 
 
 const tabs = [
@@ -143,11 +161,11 @@ const tabs = [
     },
 ];
 
-// tabs.push({
-//     name: 'More',
-//     image: assets.home.myLatestProject.rocket,
-//     data: []
-// });
+tabs.push({
+    name: 'More',
+    image: assets.home.myLatestProject.rocket,
+    data: []
+});
 
 
 export default function SectionMyLatestProject() {
@@ -175,7 +193,7 @@ export default function SectionMyLatestProject() {
         window.history.pushState({}, '', `?tab=${index}`);
     };
 
-    
+
     return (
         <section ref={ref} className={`safe-x-padding ${styles.sectionDistance}`} aria-label='My Latest Project Section'>
                <div className='text-center'>
@@ -257,15 +275,15 @@ export default function SectionMyLatestProject() {
                                             <div className='flex flex-col items-center justify-center w-full h-full select-none lg:select-auto'>
                                                 <p className="p-8 text-xl font-bold text-center transition-all duration-150 ease-in-out line-clamp-1">{item.title}</p>
                                                 <div className='flex flex-row gap-4 text-3xl'>
-                                                    {item.repositoryUrl && (
-                                                        <Link
-                                                            className="p-4 transition-all duration-150 ease-in-out bg-gray rounded-2xl hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary"
-                                                            href={item.repositoryUrl}
-                                                            target='_blank'
-                                                            title="Repository"
-                                                        >
-                                                            {tabs[activeTab].name.toLowerCase() === "project" ? (
-                                                                <BsGithub />
+                                                {isProjectItemWithRepo(item) && item.repositoryUrl && (
+                        <Link
+                            className="p-4 transition-all duration-150 ease-in-out bg-gray rounded-2xl hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary"
+                            href={item.repositoryUrl}
+                            target='_blank'
+                            title="Repository"
+                        >
+                            {tabs[activeTab].name.toLowerCase() === "project" ? (
+                             <BsGithub />
                                                             ) : (
                                                                 <FiFigma />
                                                             )}
