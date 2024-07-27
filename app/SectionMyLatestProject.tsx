@@ -147,15 +147,15 @@ const tabs = [
     },
 
     {
-        name: 'Certificate',
+        name: 'Experince',
         image: assets.home.myLatestProject.rocket,
         data: [
             {
-                slug: 'portfolio-web-design',
-                title: 'Portfolio Web Design',
-                image: assets.home.myLatestProject.projects.portfolioWebsite,
-                repositoryUrl: "https://www.figma.com/file/TYBBBbA5cvBN4QU70hNxvr/DK-PORTFOLIO?type=design&node-id=49%3A26&t=3Bwr9eEa8OLH9C0R-1",
-                demoUrl: "https://www.figma.com/proto/TYBBBbA5cvBN4QU70hNxvr/DK-PORTFOLIO?page-id=0%3A1&type=design&node-id=49-26&viewport=-226%2C241%2C0.42&scaling=min-zoom",
+                slug: 'Intern',
+                title: 'Ricoz',
+                image: assets.home.myLatestProject.projects.Ricoz,
+                // repositoryUrl: "https:/.figma.com/file/TYBBBbA5cvBN4QU70hNxvr/DK-PORTFOLIO?type=design&node-id=49%3A26&t=3Bwr9eEa8OLH9C0R-1",
+                // demoUrl: "https://www.figma.com/proto/TYBBBbA5cvBN4QU70hNxvr/DK-PORTFOLIO?page-id=0%3A1&type=design&node-id=49-26&viewport=-226%2C241%2C0.42&scaling=min-zoom",
             },
         ],
     },
@@ -163,7 +163,7 @@ const tabs = [
 
 tabs.push({
     name: 'More',
-    image: assets.home.myLatestProject.rocket,
+    image: assets.home.myLatestProject.suitcase,
     data: []
 });
 

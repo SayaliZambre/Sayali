@@ -37,6 +37,8 @@ export const assets = {
         Elite: require("@images/home/myLatestProject/projects/Elite.png"),
         Cryptic: require("@images/home/myLatestProject/projects/Crptic.jpg"),
 
+        Ricoz: require("@images/home/myLatestProject/projects/Ricoz.jpeg"),
+
 
         xero: require("@images/home/myLatestProject/projects/xero.jpg"),
         quizapp: require("@images/home/myLatestProject/projects/quizapp.png"),
