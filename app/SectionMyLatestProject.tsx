@@ -21,7 +21,7 @@ interface ProjectItemWithRepo {
 }
 
 interface ProjectItemWithoutRepo {  
-    
+
     slug: string;
     title: string;
     image: any;
@@ -29,7 +29,7 @@ interface ProjectItemWithoutRepo {
 }
 
 type ProjectItem = ProjectItemWithRepo | ProjectItemWithoutRepo;
-function isProjectItemWithRepo(item: ProjectItem): item is ProjectItemWithRepo {
+function isProjectItemWithRepo(item: any): item is ProjectItemWithRepo {
     return (item as ProjectItemWithRepo).repositoryUrl !== undefined;
 }
 
@@ -155,6 +155,7 @@ const tabs = [
                 slug: 'Intern',
                 title: 'Ricoz',
                 image: assets.home.myLatestProject.projects.Ricoz,
+                demoUrl : ""
                 // repositoryUrl: "https:/.figma.com/file/TYBBBbA5cvBN4QU70hNxvr/DK-PORTFOLIO?type=design&node-id=49%3A26&t=3Bwr9eEa8OLH9C0R-1",
                 // demoUrl: "https://www.figma.com/proto/TYBBBbA5cvBN4QU70hNxvr/DK-PORTFOLIO?page-id=0%3A1&type=design&node-id=49-26&viewport=-226%2C241%2C0.42&scaling=min-zoom",
             },
@@ -290,10 +291,10 @@ export default function SectionMyLatestProject() {
                                                             )}
                                                         </Link>
                                                     )}
-                                                    {item.demoUrl && (
+                                                    {item?.demoUrl && (
                                                         <Link
                                                             className="p-4 transition-all duration-300 ease-in-out bg-gray rounded-2xl hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-secondary"
-                                                            href={item.demoUrl}
+                                                            href={item?.demoUrl}
                                                             target='_blank'
                                                             title="Demo"
                                                         >
