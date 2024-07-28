@@ -20,7 +20,8 @@ interface ProjectItemWithRepo {
     demoUrl: string;
 }
 
-interface ProjectItemWithoutRepo {
+interface ProjectItemWithoutRepo {  
+    
     slug: string;
     title: string;
     image: any;
