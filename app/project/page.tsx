@@ -170,7 +170,7 @@ const initialProjects = [
     {
         slug: 'Chat-App',
         title: 'Chat-App',
-        image: assets.home.myLatestProject.projects.portfolioWebsite,
+        image: assets.home.myLatestProject.projects.Ide,
         repositoryUrl: "https://github.com/SayaliZambre/chatapp.io",
         demoUrl: "https://deri.my.id",
         summary: 'A real-time chat application that enables seamless communication with instant messaging, group chats, and multimedia sharing. ',
