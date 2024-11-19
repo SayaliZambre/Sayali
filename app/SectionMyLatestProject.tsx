@@ -121,7 +121,7 @@ const tabs = [
                 title: 'Leetcode',
                 image: assets.home.myLatestProject.projects.leetcode,
                 // repositoryUrl: "https://www.figma.com/file/TYBBBbA5cvBN4QU70hNxvr/DK-PORTFOLIO?type=design&node-id=49%3A26&t=3Bwr9eEa8OLH9C0R-1",
-                demoUrl: "https://leetcode.com/u/G_root/",
+                demoUrl: "https://leetcode.com/u/Sayaliiiii/",
             },
             {
                 slug: 'Hackerrank ',
