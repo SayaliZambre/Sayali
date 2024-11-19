@@ -93,7 +93,7 @@ export default function Navbar(): JSX.Element {
                         {/* <a className='px-6 py-2 text-white gradient-btn rounded-xl' href="/" download="Sayali Zambre Resume">Resume</a> */}
                         <a
   className="px-6 py-2 text-white gradient-btn rounded-xl"
-  href="https://drive.google.com/file/d/18vMzpnd0m8_bfoPvUhmOnsEh2Ud2Vb-U/view?usp=drive_link"
+  href="https://drive.google.com/file/d/1tOPjGiBjH3QBFyMDuuPE_MxJkYOkUiRr/view?usp=sharing"
   target="_blank"
   rel="noopener noreferrer"
 >
